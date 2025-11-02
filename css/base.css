@@ -1,0 +1,512 @@
+/* 基础样式和变量 */
+:root {
+    --primary: #2563eb;
+    --secondary: #10b981;
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f1f5f9;
+    --accent: #06b6d4;
+    --gradient: linear-gradient(135deg, #2563eb, #10b981);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    overflow-y: scroll; /* 始终显示垂直滚动条，防止页面切换时宽度变化 */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 页面容器 */
+.page-container {
+    min-height: 100vh;
+    padding-top: 80px;
+    position: relative;
+}
+
+.page {
+    display: none;
+    padding: 3rem 0;
+    position: relative;
+    min-height: calc(100vh - 80px);
+}
+
+/* 页面背景延伸到整个视口（包括顶部padding区域） */
+.page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity 0.3s ease; /* 背景快速过渡，避免黑色闪烁 */
+}
+
+.page.active {
+    display: block;
+    animation: fadeInContent 0.5s ease-in-out;
+}
+
+@keyframes fadeInContent {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 通用标题 */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+/* 导航栏 - 毛玻璃效果 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.0);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-right: 3rem;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    flex-wrap: nowrap;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-link {
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.nav-link:hover {
+    color: var(--accent);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+}
+
+.nav-link.active {
+    color: var(--accent);
+    background: rgba(37, 99, 235, 0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* 语言切换器 */
+.lang-switcher {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.lang-btn.active {
+    background: rgba(37, 99, 235, 0.3);
+    border-color: rgba(37, 99, 235, 0.5);
+    color: var(--accent);
+    box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+}
+
+/* 项目页面 - 选中效果更突出 */
+body.page-projects .nav-link.active {
+    background: rgba(37, 99, 235, 0.4);
+    box-shadow: 0 2px 15px rgba(37, 99, 235, 0.5);
+}
+
+/* 未来页面 - 文字加深，选中效果加深 */
+body.page-future .nav-link {
+    color: #1a202c;
+}
+
+body.page-future .nav-link:hover {
+    color: #0369a1;
+    background: rgba(6, 182, 212, 0.2);
+}
+
+body.page-future .nav-link.active {
+    color: #0c4a6e;
+    background: rgba(31, 129, 243, 0.4);
+    box-shadow: 0 2px 15px rgba(6, 182, 212, 0.5);
+}
+
+/* 个人页面 - 其他选项文字蓝色 */
+body.page-about .nav-link {
+    color: #2563eb;
+}
+
+body.page-about .nav-link:hover {
+    color: #1d4ed8;
+    background: rgba(37, 99, 235, 0.15);
+}
+
+body.page-about .nav-link.active {
+    color: #06b6d4;
+    background: rgba(37, 99, 235, 0.2);
+}
+
+/* 未来页面 - 语言切换器样式 */
+body.page-future .lang-btn {
+    color: #1a202c;
+    border-color: rgba(26, 32, 44, 0.3);
+}
+
+body.page-future .lang-btn:hover {
+    color: #0369a1;
+    border-color: rgba(3, 105, 161, 0.5);
+    background: rgba(6, 182, 212, 0.1);
+}
+
+body.page-future .lang-btn.active {
+    background: rgba(31, 129, 243, 0.3);
+    border-color: rgba(31, 129, 243, 0.5);
+    color: #0c4a6e;
+}
+
+/* 个人页面 - 语言切换器样式 */
+body.page-about .lang-btn {
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+body.page-about .lang-btn:hover {
+    color: #1d4ed8;
+    border-color: rgba(29, 78, 216, 0.5);
+    background: rgba(37, 99, 235, 0.1);
+}
+
+body.page-about .lang-btn.active {
+    background: rgba(37, 99, 235, 0.2);
+    border-color: rgba(37, 99, 235, 0.5);
+    color: #06b6d4;
+}
+
+/* 未来页面 - 移动端菜单按钮样式 */
+body.page-future .mobile-menu-btn {
+    color: #1a202c;
+    border-color: rgba(26, 32, 44, 0.3);
+}
+
+body.page-future .mobile-menu-btn:hover {
+    background: rgba(6, 182, 212, 0.2);
+    border-color: rgba(3, 105, 161, 0.5);
+}
+
+/* 个人页面 - 移动端菜单按钮样式 */
+body.page-about .mobile-menu-btn {
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+body.page-about .mobile-menu-btn:hover {
+    background: rgba(37, 99, 235, 0.2);
+    border-color: rgba(29, 78, 216, 0.5);
+}
+
+/* 未来页面 - 移动端下拉菜单样式 */
+body.page-future .mobile-menu {
+    background: rgba(135, 206, 235, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.page-future .mobile-menu .nav-link {
+    color: #1a202c;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.page-future .mobile-menu .nav-link:hover {
+    color: #0369a1;
+    background: rgba(6, 182, 212, 0.2);
+}
+
+body.page-future .mobile-menu .nav-link.active {
+    color: #0c4a6e;
+    background: rgba(31, 129, 243, 0.3);
+}
+
+/* 个人页面 - 移动端下拉菜单样式 */
+body.page-about .mobile-menu {
+    background: rgba(253, 250, 226, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+body.page-about .mobile-menu .nav-link {
+    color: #2563eb;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+body.page-about .mobile-menu .nav-link:hover {
+    color: #1d4ed8;
+    background: rgba(37, 99, 235, 0.15);
+}
+
+body.page-about .mobile-menu .nav-link.active {
+    color: #06b6d4;
+    background: rgba(37, 99, 235, 0.2);
+}
+
+/* 项目页面 - 移动端下拉菜单样式 */
+body.page-projects .mobile-menu {
+    background: rgba(59, 123, 196, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(85, 45, 153, 0.2);
+}
+
+body.page-projects .mobile-menu .nav-link {
+    color: #fff4fc;
+    border-bottom: 1px solid rgba(107, 70, 193, 0.1);
+}
+
+body.page-projects .mobile-menu .nav-link:hover {
+    color: #fcdfff;
+    background: rgba(107, 70, 193, 0.15);
+}
+
+/* 联系页面 - 移动下拉菜单样式 */
+body.page-contact .mobile-menu {
+    background: rgba(208, 101, 254, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+body.page-contact .mobile-menu .nav-link {
+    color: #eedcf7;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+body.page-contact .mobile-menu .nav-link:hover {
+    color: #edb3f8;
+    background: rgba(37, 99, 235, 0.15);
+}
+
+body.page-contact .mobile-menu .nav-link.active {
+    color: #06b6d4;
+    background: rgba(37, 99, 235, 0.2);
+}
+
+/* 个人页面 - 移动端菜单按钮样式 */
+body.page-about .mobile-menu-btn {
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+body.page-about .mobile-menu-btn:hover {
+    background: rgba(37, 99, 235, 0.2);
+    border-color: rgba(29, 78, 216, 0.5);
+}
+
+/* 项目页面 - 移动端菜单按钮样式 */
+body.page-project .mobile-menu-btn {
+    color: #e714b5;
+    border-color: rgba(107, 70, 193, 0.3);
+}
+
+body.page-project .mobile-menu-btn:hover {
+    background: rgba(107, 70, 193, 0.2);
+    border-color: rgba(85, 45, 153, 0.5);
+}
+
+/* 移动端导航 - 毛玻璃效果 */
+.mobile-menu-btn {
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    padding: 1rem 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 999;
+}
+
+.mobile-menu.active {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-menu .nav-menu {
+    flex-direction: column;
+    gap: 0;
+    position: static;
+    transform: none;
+    width: 100%;
+}
+
+.mobile-menu .nav-link {
+    display: block;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+.mobile-menu .nav-link::after {
+    display: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav-container .nav-menu {
+        display: none;
+    }
+    
+    .lang-switcher {
+        gap: 0.3rem;
+    }
+    
+    .lang-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1001;
+        margin-left: 0.5rem;
+    }
+    
+    .navbar {
+        padding: 0.75rem 0;
+    }
+    
+    .mobile-menu {
+        top: 60px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    /* 移动端下logo不占用固定宽度 */
+    .logo {
+        margin-right: auto;
+        width: auto;
+    }
+}
