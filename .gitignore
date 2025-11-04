@@ -1,3 +1,7 @@
+src/asset/
+src/pdf/
+
+
 # OS
 .DS_Store
 Thumbs.db

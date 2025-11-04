@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title  data-i18n="title.name">name-job</title>
+    
+    <!-- 基础样式 -->
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- 各页面样式 -->
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/projects.css">
+    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/future.css">
+    <link rel="stylesheet" href="./css/contact.css">
+    
+    <!-- 国际化 -->
+    <script src="./locales/translations.js"></script>
+    <script src="./js/i18n.js"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo" id="logo-name" data-i18n="home.name">home.name</div>
+                
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active" data-i18n="nav.home">nav.home</a></li>
+                    <li><a href="#projects" class="nav-link" data-i18n="nav.projects">nav.projects</a></li>
+                    <li><a href="#future" class="nav-link" data-i18n="nav.future">nav.future</a></li>
+                    <li><a href="#about" class="nav-link" data-i18n="nav.about">nav.about</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav.contact">nav.contact</a></li>
+                </ul>
+
+                <!-- 语言切换器 -->
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="en">English</button>
+                    <button class="lang-btn" data-lang="ja">日本語</button>
+                </div>
+
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 移动端菜单 -->
+    <div class="mobile-menu">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active" data-i18n="nav.home">nav.home</a></li>
+                <li><a href="#projects" class="nav-link" data-i18n="nav.projects">nav.projects</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav.about">nav.about</a></li>
+                <li><a href="#future" class="nav-link" data-i18n="nav.future">nav.future</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">nav.contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 页面容器 -->
+    <div class="page-container">
+        <div id="home" class="page home active">
+            <div class="container">
+                <div class="hero">
+                    <h1 class="hero-name" id="hero-name" data-i18n="home.name">home.name</h1>
+                    <p class="hero-title" id="hero-title" data-i18n="home.title">home.title</p>
+                    <p class="hero-subtitle" id="hero-subtitle" data-i18n="home.subtitle">home.subtitle</p>
+                    <div class="job-seeking-badge">
+                        <span class="job-text" id="hero-job-seeking" data-i18n="home.jobSeeking">home.jobSeeking</span>
+                    </div>
+                    <p class="hero-desc" id="hero-description" data-i18n="home.description">home.description</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="cta-button" id="btn-view-projects" data-i18n="home.viewProjects">home.viewProjects</a>
+                        <a href="#contact" class="cta-button secondary" id="btn-contact" data-i18n="home.contactMe">home.contactMe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 项目页面 -->
+        <div id="projects" class="page">
+            <div class="container">
+                <h2 class="section-title">我的项目</h2>
+                <div class="projects-grid">
+                    <div class="project-card" data-project="ecommerce">
+                        <div class="project-image-container">
+                            <img src="./asset/images/project1.jpg" alt="电商平台" class="project-image" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">电商平台</h3>
+                            <p class="project-description">一个现代化的电商购物平台，支持商品浏览、购物车、支付等完整功能</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="dataviz">
+                        <div class="project-image-container">
+                            <img src="./asset/images/project2.jpg" alt="数据可视化" class="project-image" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">数据可视化大屏</h3>
+                            <p class="project-description">企业级数据可视化解决方案，实时展示业务数据和分析报告</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">ECharts</span>
+                                <span class="tech-tag">D3.js</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="mobile">
+                        <div class="project-image-container">
+                            <img src="./asset/images/project3.jpg" alt="移动应用" class="project-image" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">移动端应用</h3>
+                            <p class="project-description">跨平台移动应用，提供社交、分享、定位等移动端特色功能</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Redux</span>
+                            </div>
+                        </div>
+                    </div>
+
+                                        <div class="project-card" data-project="mobile">
+                        <div class="project-image-container">
+                            <img src="./asset/images/project3.jpg" alt="移动应用" class="project-image" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">移动端应用</h3>
+                            <p class="project-description">跨平台移动应用，提供社交、分享、定位等移动端特色功能</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Redux</span>
+                            </div>
+                        </div>
+                    </div>
+
+                                        <div class="project-card" data-project="mobile">
+                        <div class="project-image-container">
+                            <img src="./asset/images/project3.jpg" alt="移动应用" class="project-image" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">移动端应用</h3>
+                            <p class="project-description">跨平台移动应用，提供社交、分享、定位等移动端特色功能</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Redux</span>
+                            </div>
+                        </div>
+                    </div>
+
+                                        <div class="project-card" data-project="mobile">
+                        <div class="project-image-container">
+                            <img src="./asset/images/project3.jpg" alt="移动应用" class="project-image" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">移动端应用</h3>
+                            <p class="project-description">跨平台移动应用，提供社交、分享、定位等移动端特色功能</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Redux</span>
+                            </div>
+                        </div>
+                    </div>
+
+                                        <div class="project-card" data-project="mobile">
+                        <div class="project-image-container">
+                            <img src="./asset/images/project3.jpg" alt="移动应用" class="project-image" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">移动端应用</h3>
+                            <p class="project-description">跨平台移动应用，提供社交、分享、定位等移动端特色功能</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Redux</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目详情模态框 -->
+                <div id="project-modal" class="modal">
+                    <div class="modal-content">
+                        <button class="modal-close">×</button>
+                        <div class="modal-body">
+                            <h2 class="modal-title"></h2>
+                            <div class="modal-tech"></div>
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 个人页面 -->
+        <div id="about" class="page">
+            <div class="container">
+                <h2 class="section-title">关于我</h2>
+
+                <div class="info-card">
+                    <h3 data-i18n="about.info">基本信息</h3>
+                    <div class="info-grid">
+                        <div class="info-box">
+                            <div class="info-label" data-i18n="about.name">about.name</div>
+                            <div class="info-value" data-i18n="about.name.value">about.name.value</div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-label" data-i18n="about.location">about.location</div>
+                            <div class="info-value" data-i18n="about.location.value">about.location.value</div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-label" data-i18n="about.experience">about.experience</div>
+                            <div class="info-value" data-i18n="about.experience.value">about.experience.value</div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-label" data-i18n="about.education">学历</div>
+                            <div class="info-value" data-i18n="about.education.value">计算机科学学士</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3 data-i18n="about.skills">about.skills</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>JavaScript/TypeScript</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>React/Vue.js</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Node.js</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>UI/UX 设计</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>工作经历</h3>
+                    <div class="work-list">
+                        <div class="work-item">
+                            <div class="work-company" data-i18n="work-company1">work-company1</div>
+                            <div class="work-position" data-i18n="work-position1">work-position1</div>
+                        </div>
+                        <div class="work-item">
+                            <div class="work-company" data-i18n="work-company2">work-company2</div>
+                            <div class="work-position" data-i18n="work-position2">work-position2</div>
+                        </div>
+                        <div class="work-item">
+                            <div class="work-company" data-i18n="work-company3">work-company3</div>
+                            <div class="work-position" data-i18n="work-position3">work-position3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3 data-i18n="interests-title">interests-title</h3>
+                    <div class="interests-grid">
+                        <div class="interest-item">
+                            <div class="interest-icon">💻</div>
+                            <div data-i18n="interest-programming">interest-programming</div>
+                        </div>
+                        <div class="interest-item">
+                            <div class="interest-icon">📷</div>
+                            <div data-i18n="interest-photography">interest-photography</div>
+                        </div>
+                        <div class="interest-item">
+                            <div class="interest-icon">✈️</div>
+                            <div data-i18n="interest-travel">interest-travel</div>
+                        </div>
+                        <div class="interest-item">
+                            <div class="interest-icon">📚</div>
+                            <div data-i18n="interest-reading">interest-reading</div>
+                        </div>
+                        <div class="interest-item">
+                            <div class="interest-icon">🎵</div>
+                            <div data-i18n="interest-music">interest-music</div>
+                        </div>
+                        <div class="interest-item">
+                            <div class="interest-icon">⚽</div>
+                            <div data-i18n="interest-sports">interest-sports</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 未来页面 -->
+        <div id="future" class="page page-future">
+            <div class="container">
+                <h2 class="section-title">未来规划</h2>
+
+                <div class="future-tabs">
+                    <button class="future-tab active" data-tab="career">职业发展</button>
+                    <button class="future-tab" data-tab="life">生活目标</button>
+                    <button class="future-tab" data-tab="learning">学习计划</button>
+                </div>
+
+                <div class="future-content active" data-content="career">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2026</div>
+                            <div class="timeline-detail">
+                                <h3 data-i18n="future.career.2026.title">future.career.2026.title</h3>
+                                <p data-i18n="future.career.2026.description">future.career.2026.description</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2027</div>
+                            <div class="timeline-detail">
+                                <h3 data-i18n="future.career.2027.title">future.career.2027.title</h3>
+                                <p data-i18n="future.career.2027.description">future.career.2027.description</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year" >2028+</div>
+                            <div class="timeline-detail">
+                                <h3 data-i18n="future.career.2028.title">future.career.2028.title</h3>
+                                <p data-i18n="future.career.2028.description">future.career.2028.description</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year" >2033+</div>
+                            <div class="timeline-detail">
+                                <h3 data-i18n="future.career.2033.title">future.career.2033.title</h3>
+                                <p data-i18n="future.career.2033.description">future.career.2033.description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="future-content" data-content="life">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2024</div>
+                            <div class="timeline-detail">
+                                <h3>健康生活</h3>
+                                <p>建立规律的作息时间，每周健身3次，培养健康的生活习惯，保持工作与生活的平衡。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2025</div>
+                            <div class="timeline-detail">
+                                <h3>家庭规划</h3>
+                                <p>更多时间陪伴家人，计划家庭旅行，为未来的家庭生活做好准备。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2026+</div>
+                            <div class="timeline-detail">
+                                <h3>生活品质</h3>
+                                <p>提升生活品质，探索更多兴趣爱好，享受生活的美好，实现财务自由。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="future-content" data-content="learning">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2024</div>
+                            <div class="timeline-detail">
+                                <h3>Web3.0技术</h3>
+                                <p>深入学习区块链、智能合约、去中心化应用等Web3.0相关技术栈。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2025</div>
+                            <div class="timeline-detail">
+                                <h3>AI应用开发</h3>
+                                <p>学习机器学习基础，掌握AI模型的前端集成和应用开发。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2026+</div>
+                            <div class="timeline-detail">
+                                <h3>架构设计</h3>
+                                <p>系统学习软件架构设计，提升系统设计和技术决策能力。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 联系页面 -->
+        <div id="contact" class="page">
+            <div class="container">
+                <h2 class="section-title" data-i18n="contact.title">contact.title</h2>
+                <p class="contact-intro" data-i18n="contact.intro">如果您对我的工作感兴趣，或有任何合作机会，欢迎随时联系我！</p>
+                
+                <div class="download-buttons">
+                    <button class="download-btn primary-download" id="primaryDownload">
+                        <span>📄</span>
+                        <span data-i18n="contact.downloadPrimary">选择语言版本下载</span>
+                    </button>
+                </div>
+
+                <!-- 下载选项弹窗 -->
+                <div id="download-modal" class="download-modal">
+                    <div class="download-modal-content">
+                        <button class="download-modal-close">×</button>
+                        <h3 data-i18n="contact.downloadOtherVersions">下载其他语言版本</h3>
+                        <div class="download-options">
+                            <a href="./pdf/resume_ch.pdf" class="download-option" download data-lang="zh">
+                                <span>📄</span>
+                                <span data-i18n="contact.downloadChinese">中文简历</span>
+                            </a>
+                            <a href="./pdf/resume_en.pdf" class="download-option" download data-lang="en">
+                                <span>📄</span>
+                                <span data-i18n="contact.downloadEnglish">English Resume</span>
+                            </a>
+                            <a href="./pdf/resume_ch_jp.pdf" class="download-option" download data-lang="ja">
+                                <span>📄</span>
+                                <span data-i18n="contact.downloadJapanese">日本語履歴書</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <h3 data-i18n="contact.email">邮箱</h3>
+                        <p><a href="mailto:zhangsan@example.com">zhangsan@example.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <h3 data-i18n="contact.phone">电话</h3>
+                        <p><a href="tel:+8613800000000">+86 138 0000 0000</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💻</div>
+                        <h3 data-i18n="contact.github">GitHub</h3>
+                        <p><a href="https://github.com/zhangsan" target="_blank">github.com/zhangsan</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <h3 data-i18n="contact.wechat">微信</h3>
+                        <p>zhangsan_dev</p>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
